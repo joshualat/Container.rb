@@ -29,9 +29,17 @@ class Container
 
   def [](key)
     if key.is_a?(Numeric)
-      @array[key] || NullObject.new
+      safe @array[key]
     else
-      @hash[key] || NullObject.new
+      safe @hash[key]
+    end
+  end
+
+  def safe(value)
+    if value.nil?
+      NullObject.new
+    else
+      value
     end
   end
 
@@ -71,7 +79,13 @@ class Container
       @hash[hash_key] = arguments.first
     else
       if @hash.keys.include?(hash_key)
-        @hash[hash_key] || NullObject.new
+        return_value = @hash[hash_key]
+
+        if return_value.nil?
+          NullObject.new
+        else
+          return_value
+        end
       else
         NullObject.new
       end
