@@ -71,8 +71,10 @@ class Container
     output_hash
   end
 
-  def set
+  def set(note = '')
     yield(self)
+
+    self
   end
 
   def method_missing(method_sym, *arguments, &block)

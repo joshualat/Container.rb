@@ -99,7 +99,7 @@ container.to_hash(:a, :b)
 ```ruby
 row = Container.new
 
-row.set do |r|
+row.set('optional note') do |r|
   r.master = true
   r.disabled = false
   r.id = 5
