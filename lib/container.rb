@@ -31,7 +31,7 @@ class Container
     if key.is_a?(Numeric)
       @array[key] || NullObject.new
     else
-      @hash[key]
+      @hash[key] || NullObject.new
     end
   end
 
@@ -71,7 +71,7 @@ class Container
       @hash[hash_key] = arguments.first
     else
       if @hash.keys.include?(hash_key)
-        @hash[hash_key]
+        @hash[hash_key] || NullObject.new
       else
         NullObject.new
       end

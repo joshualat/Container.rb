@@ -23,4 +23,20 @@ tags.hidden = true
 
 tags.hidden?
 # => true
+
+tags.each do |tag|
+  puts tag
+end
+# => Master
+# => Disabled
+```
+
+## Safe Chaining in Views
+
+```ruby
+resources = Container.new
+
+# Product # 1000 = nil
+resources.product = Product.where(id: 1000).first
+
 ```
