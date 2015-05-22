@@ -109,6 +109,10 @@ class Container
       ""
     end
 
+    def !
+      true
+    end
+
     def method_missing(method_sym, *arguments, &block)
       return NullObject.new
     end

@@ -65,6 +65,9 @@ null.to_s
 null.empty?
 # => true 
 
+!null
+# => true
+
 null.non_existent_field.non_existent_field
 # => Container::NullObject
 ```
