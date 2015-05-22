@@ -95,6 +95,26 @@ container.to_hash(:a, :b)
 # => {:a=>3, :b=>4} 
 ```
 
+## Alternate Syntax for Container
+```ruby
+row = Container.new
+
+row.set do |r|
+  r.master = true
+  r.disabled = false
+  r.id = 5
+end
+
+row.master?
+# => true 
+
+row.disabled?
+# => false
+
+row.id
+# => 5
+```
+
 ## Advanced Usage: NullObject
 
 Existing variables may be wrapped using the NullObject.wrap method to allow chaining without fear of NoMethodError concerns in views

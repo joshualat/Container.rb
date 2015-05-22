@@ -71,6 +71,10 @@ class Container
     output_hash
   end
 
+  def set
+    yield(self)
+  end
+
   def method_missing(method_sym, *arguments, &block)
     method_last_char = method_sym[-1]
     hash_key = method_sym.to_s.gsub('?','').gsub('=','').to_sym
