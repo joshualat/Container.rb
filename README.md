@@ -48,6 +48,8 @@ resources.product.images.first.url
 
 ## NullObject
 
+Collector::NullObject is a quick implementation of the [Null Object Pattern](http://en.wikipedia.org/wiki/Null_Object_pattern)
+
 ```ruby
 null = Container::NullObject.new
 
@@ -65,4 +67,27 @@ null.empty?
 
 null.non_existent_field.non_existent_field
 # => Container::NullObject
+```
+
+## Get Array and Hash values
+
+```ruby
+container = Container.new
+
+container << 5
+container << 3
+container << 7
+
+container[:a] = 3
+container[:b] = 4
+container.c = 5
+
+container.array
+# => [5, 3, 7]
+
+container.hash
+# => {:a=>3, :b=>4, :c=>5}
+
+container.to_hash(:a, :b)
+# => {:a=>3, :b=>4} 
 ```
