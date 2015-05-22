@@ -109,12 +109,26 @@ class Container
       ""
     end
 
+    def to_str
+      ""
+    end
+
     def !
       true
     end
 
     def method_missing(method_sym, *arguments, &block)
       return NullObject.new
+    end
+
+    def self.wrap(instance)
+      class << instance
+        def method_missing(method_sym, *arguments, &block)
+          return NullObject.new
+        end
+      end
+
+      instance
     end
   end
 end
