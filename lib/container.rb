@@ -54,7 +54,7 @@ class Container
   def to_hash(*allowed_keys)
     output_hash = Hash.new { NullObject.new }
 
-    if allowed_keys.blank?
+    if allowed_keys.empty?
       # return all keys symbolized
       @hash.each do |key, value|
         output_hash[key.to_sym] = value
